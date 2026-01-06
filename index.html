@@ -823,7 +823,7 @@
                       x-effect="total = quantity === '1' ? 2200 : (quantity === '2' ? 3999 : 5599)"
                       @submit.prevent="
                         submitting = true;
-                        fetch('https://led-matrix-api.YOUR-SUBDOMAIN.workers.dev/api/lead', {
+                        fetch('https://led-matrix-api.dafdoftwo.workers.dev/api/lead', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ name, phone, whatsapp, governorate, address, quantity, total })
