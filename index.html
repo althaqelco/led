@@ -39,7 +39,12 @@
             theme: {
                 extend: {
                     colors: {
-                        'neon-orange': '#FF9900',
+                        'brand-pink': '#f806b8',
+                        'brand-purple': '#4c1e81',
+                        'brand-violet': '#7c16d6',
+                        'brand-light': '#eb64f6',
+                        'brand-magenta': '#cf016f',
+                        'brand-accent': '#a731ce',
                         'dark-bg': '#0a0a0a',
                         'dark-card': '#1a1a1a',
                         'dark-border': '#2a2a2a',
@@ -62,10 +67,10 @@
         
         @keyframes pulse-glow {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 153, 0, 0.5), 0 0 40px rgba(255, 153, 0, 0.3);
+                box-shadow: 0 0 20px rgba(248, 6, 184, 0.5), 0 0 40px rgba(124, 22, 214, 0.3);
             }
             50% {
-                box-shadow: 0 0 30px rgba(255, 153, 0, 0.8), 0 0 60px rgba(255, 153, 0, 0.5);
+                box-shadow: 0 0 30px rgba(248, 6, 184, 0.8), 0 0 60px rgba(124, 22, 214, 0.5);
             }
         }
         
@@ -74,7 +79,7 @@
         }
         
         .gradient-text {
-            background: linear-gradient(135deg, #FF9900 0%, #FFD700 100%);
+            background: linear-gradient(135deg, #f806b8 0%, #eb64f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -95,7 +100,7 @@
         }
 
         .feature-card:hover {
-            border-color: #FF9900;
+            border-color: #f806b8;
             transform: translateY(-5px);
         }
 
@@ -104,16 +109,24 @@
         }
 
         .offer-card.highlighted {
-            border: 3px solid #FF9900;
-            background: linear-gradient(145deg, #2a1a00 0%, #1a1a1a 100%);
+            border: 3px solid #f806b8;
+            background: linear-gradient(145deg, #4c1e81 0%, #1a1a1a 100%);
         }
 
         .timeline-line {
-            background: linear-gradient(180deg, #FF9900 0%, #FFD700 100%);
+            background: linear-gradient(180deg, #f806b8 0%, #7c16d6 50%, #a731ce 100%);
         }
 
         .egypt-stripe {
             background: linear-gradient(to left, #000000 33%, #ce1126 33%, #ce1126 66%, #ebc036 66%);
+        }
+
+        .brand-gradient-bg {
+            background: linear-gradient(135deg, #4c1e81 0%, #7c16d6 50%, #f806b8 100%);
+        }
+
+        .brand-glow {
+            box-shadow: 0 0 30px rgba(248, 6, 184, 0.3), 0 0 60px rgba(124, 22, 214, 0.2);
         }
 
         @keyframes float {
@@ -126,7 +139,7 @@
         }
 
         .price-badge {
-            background: linear-gradient(135deg, #FF9900 0%, #FFD700 50%, #FF9900 100%);
+            background: linear-gradient(135deg, #f806b8 0%, #eb64f6 50%, #f806b8 100%);
             background-size: 200% 200%;
             animation: shimmer 2s ease-in-out infinite;
         }
@@ -179,14 +192,14 @@
             class="fixed top-2 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-4 py-2 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <div class="w-9 h-9 bg-neon-orange rounded-lg flex items-center justify-center">
+                <div class="w-9 h-9 bg-brand-pink rounded-lg flex items-center justify-center">
                     <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2 2H5V5h14v14zm0-16H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
                     </svg>
                 </div>
                 <span class="text-lg font-bold">LED Matrix Egypt</span>
             </div>
-            <a href="#order-form" class="bg-neon-orange hover:bg-orange-500 text-black font-bold px-5 py-2 rounded-full transition-all duration-300 hover:scale-105 text-sm">
+            <a href="#order-form" class="bg-brand-pink hover:bg-brand-violet text-black font-bold px-5 py-2 rounded-full transition-all duration-300 hover:scale-105 text-sm">
                 🛒 اطلب الآن
             </a>
         </div>
@@ -238,7 +251,7 @@
                     
                     <!-- Price Section -->
                     <div class="flex flex-wrap items-baseline gap-3 mb-4">
-                        <span class="text-4xl font-black text-neon-orange" x-text="selectedQty === '1' ? '2,200' : (selectedQty === '2' ? '3,999' : '5,599')"></span>
+                        <span class="text-4xl font-black text-brand-pink" x-text="selectedQty === '1' ? '2,200' : (selectedQty === '2' ? '3,999' : '5,599')"></span>
                         <span class="text-xl text-gray-400">ج.م</span>
                         <span class="text-gray-500 line-through text-lg" x-text="selectedQty === '1' ? '2,500 ج.م' : (selectedQty === '2' ? '4,400 ج.م' : '6,600 ج.م')"></span>
                         <span class="bg-red-500 text-white text-sm px-3 py-1 rounded-full font-bold flex items-center gap-1">
@@ -310,32 +323,32 @@
                     </div>
                     
                     <!-- CTA Button -->
-                    <a href="#order-form" class="block w-full bg-neon-orange hover:bg-orange-500 text-black text-center text-xl font-black py-4 rounded-xl pulse-btn transition-all duration-300 mb-6">
+                    <a href="#order-form" class="block w-full bg-brand-pink hover:bg-brand-violet text-black text-center text-xl font-black py-4 rounded-xl pulse-btn transition-all duration-300 mb-6">
                         اطلب الآن والدفع عند الاستلام
                     </a>
                     
                     <!-- Trust Icons Row -->
                     <div class="grid grid-cols-4 gap-2">
                         <div class="text-center p-3 bg-dark-card rounded-xl border border-dark-border">
-                            <svg class="w-6 h-6 mx-auto mb-1 text-neon-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 mx-auto mb-1 text-brand-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                             </svg>
                             <p class="text-xs text-gray-400">ضمان 3 سنوات</p>
                         </div>
                         <div class="text-center p-3 bg-dark-card rounded-xl border border-dark-border">
-                            <svg class="w-6 h-6 mx-auto mb-1 text-neon-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 mx-auto mb-1 text-brand-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                             </svg>
                             <p class="text-xs text-gray-400">استبدال 14 يوم</p>
                         </div>
                         <div class="text-center p-3 bg-dark-card rounded-xl border border-dark-border">
-                            <svg class="w-6 h-6 mx-auto mb-1 text-neon-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 mx-auto mb-1 text-brand-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
                             <p class="text-xs text-gray-400">شحن سريع</p>
                         </div>
                         <div class="text-center p-3 bg-dark-card rounded-xl border border-dark-border">
-                            <svg class="w-6 h-6 mx-auto mb-1 text-neon-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 mx-auto mb-1 text-brand-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
                             </svg>
                             <p class="text-xs text-gray-400">الدفع عند الاستلام</p>
@@ -370,7 +383,7 @@
                     <div class="grid grid-cols-4 gap-2">
                         <template x-for="(img, index) in images" :key="index">
                             <button @click="mainImage = img" 
-                                    :class="mainImage === img ? 'ring-2 ring-neon-orange' : 'opacity-60 hover:opacity-100'"
+                                    :class="mainImage === img ? 'ring-2 ring-brand-pink' : 'opacity-60 hover:opacity-100'"
                                     class="bg-dark-card rounded-lg overflow-hidden border border-dark-border transition-all aspect-square">
                                 <img :src="img" :alt="'صورة ' + (index + 1)" class="w-full h-full object-contain p-1">
                             </button>
@@ -453,13 +466,13 @@
             <div class="relative">
                 <!-- Navigation Arrow - Right (scrolls left/previous) -->
                 <button @click="scrollCarousel(-1)" 
-                        class="absolute right-0 top-1/2 -translate-y-1/2 z-20 text-neon-orange hover:text-orange-400 transition-all duration-300 hover:scale-125 active:scale-95 text-7xl md:text-8xl font-bold">
+                        class="absolute right-0 top-1/2 -translate-y-1/2 z-20 text-brand-pink hover:text-brand-light transition-all duration-300 hover:scale-125 active:scale-95 text-7xl md:text-8xl font-bold">
                     &gt;
                 </button>
                 
                 <!-- Navigation Arrow - Left (scrolls right/next) -->
                 <button @click="scrollCarousel(1)" 
-                        class="absolute left-0 top-1/2 -translate-y-1/2 z-20 text-neon-orange hover:text-orange-400 transition-all duration-300 hover:scale-125 active:scale-95 text-7xl md:text-8xl font-bold">
+                        class="absolute left-0 top-1/2 -translate-y-1/2 z-20 text-brand-pink hover:text-brand-light transition-all duration-300 hover:scale-125 active:scale-95 text-7xl md:text-8xl font-bold">
                     &lt;
                 </button>
                 
@@ -471,7 +484,7 @@
                 <div x-ref="videoCarousel" class="flex gap-4 overflow-x-auto pb-4 px-12 md:px-16 snap-x snap-mandatory video-carousel" style="scroll-padding: 1rem;">
                     <!-- Video Reel 1 -->
                     <div class="flex-shrink-0 snap-center">
-                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-neon-orange transition-all duration-300"
+                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-brand-pink transition-all duration-300"
                              @click="playVideo(0)">
                             <video preload="metadata" poster="images/poster_rp9eyh-h264-hd.webp" x-ref="video0" src="videos/rp9eyh-h264-hd.mp4" 
                                    class="w-full h-full object-cover" 
@@ -479,7 +492,7 @@
                                    @ended="playing = null"></video>
                             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all flex items-center justify-center"
                                  x-show="playing !== 0">
-                                <div class="w-14 h-14 bg-neon-orange/90 rounded-full flex items-center justify-center shadow-lg">
+                                <div class="w-14 h-14 bg-brand-pink/90 rounded-full flex items-center justify-center shadow-lg">
                                     <svg class="w-6 h-6 text-black mr-[-2px]" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                                     </svg>
@@ -493,7 +506,7 @@
 
                     <!-- Video Reel 2 -->
                     <div class="flex-shrink-0 snap-center">
-                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-neon-orange transition-all duration-300"
+                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-brand-pink transition-all duration-300"
                              @click="playVideo(1)">
                             <video preload="metadata" poster="images/poster_snaptik_7468947176090029318_hd.webp" x-ref="video1" src="videos/snaptik_7468947176090029318_hd.mp4" 
                                    class="w-full h-full object-cover" 
@@ -501,7 +514,7 @@
                                    @ended="playing = null"></video>
                             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all flex items-center justify-center"
                                  x-show="playing !== 1">
-                                <div class="w-14 h-14 bg-neon-orange/90 rounded-full flex items-center justify-center shadow-lg">
+                                <div class="w-14 h-14 bg-brand-pink/90 rounded-full flex items-center justify-center shadow-lg">
                                     <svg class="w-6 h-6 text-black mr-[-2px]" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                                     </svg>
@@ -515,7 +528,7 @@
 
                     <!-- Video Reel 3 -->
                     <div class="flex-shrink-0 snap-center">
-                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-neon-orange transition-all duration-300"
+                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-brand-pink transition-all duration-300"
                              @click="playVideo(2)">
                             <video preload="metadata" poster="images/poster_snaptik_7477021853861678354_hd.webp" x-ref="video2" src="videos/snaptik_7477021853861678354_hd.mp4" 
                                    class="w-full h-full object-cover" 
@@ -523,7 +536,7 @@
                                    @ended="playing = null"></video>
                             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all flex items-center justify-center"
                                  x-show="playing !== 2">
-                                <div class="w-14 h-14 bg-neon-orange/90 rounded-full flex items-center justify-center shadow-lg">
+                                <div class="w-14 h-14 bg-brand-pink/90 rounded-full flex items-center justify-center shadow-lg">
                                     <svg class="w-6 h-6 text-black mr-[-2px]" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                                     </svg>
@@ -537,7 +550,7 @@
 
                     <!-- Video Reel 4 -->
                     <div class="flex-shrink-0 snap-center">
-                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-neon-orange transition-all duration-300"
+                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-brand-pink transition-all duration-300"
                              @click="playVideo(3)">
                             <video preload="metadata" poster="images/poster_snaptik_7477773774125845765_hd.webp" x-ref="video3" src="videos/snaptik_7477773774125845765_hd.mp4" 
                                    class="w-full h-full object-cover" 
@@ -545,7 +558,7 @@
                                    @ended="playing = null"></video>
                             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all flex items-center justify-center"
                                  x-show="playing !== 3">
-                                <div class="w-14 h-14 bg-neon-orange/90 rounded-full flex items-center justify-center shadow-lg">
+                                <div class="w-14 h-14 bg-brand-pink/90 rounded-full flex items-center justify-center shadow-lg">
                                     <svg class="w-6 h-6 text-black mr-[-2px]" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                                     </svg>
@@ -559,7 +572,7 @@
 
                     <!-- Video Reel 5 -->
                     <div class="flex-shrink-0 snap-center">
-                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-neon-orange transition-all duration-300"
+                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-brand-pink transition-all duration-300"
                              @click="playVideo(4)">
                             <video preload="metadata" poster="images/poster_snaptik_7498078648264609066_hd.webp" x-ref="video4" src="videos/snaptik_7498078648264609066_hd.mp4" 
                                    class="w-full h-full object-cover" 
@@ -567,7 +580,7 @@
                                    @ended="playing = null"></video>
                             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all flex items-center justify-center"
                                  x-show="playing !== 4">
-                                <div class="w-14 h-14 bg-neon-orange/90 rounded-full flex items-center justify-center shadow-lg">
+                                <div class="w-14 h-14 bg-brand-pink/90 rounded-full flex items-center justify-center shadow-lg">
                                     <svg class="w-6 h-6 text-black mr-[-2px]" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                                     </svg>
@@ -581,7 +594,7 @@
 
                     <!-- Video Reel 6 -->
                     <div class="flex-shrink-0 snap-center">
-                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-neon-orange transition-all duration-300"
+                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-brand-pink transition-all duration-300"
                              @click="playVideo(5)">
                             <video preload="metadata" poster="images/poster_snaptik_7535671268977151240_v2.webp" x-ref="video5" src="videos/snaptik_7535671268977151240_v2.mp4" 
                                    class="w-full h-full object-cover" 
@@ -589,7 +602,7 @@
                                    @ended="playing = null"></video>
                             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all flex items-center justify-center"
                                  x-show="playing !== 5">
-                                <div class="w-14 h-14 bg-neon-orange/90 rounded-full flex items-center justify-center shadow-lg">
+                                <div class="w-14 h-14 bg-brand-pink/90 rounded-full flex items-center justify-center shadow-lg">
                                     <svg class="w-6 h-6 text-black mr-[-2px]" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                                     </svg>
@@ -603,7 +616,7 @@
 
                     <!-- Video Reel 7 -->
                     <div class="flex-shrink-0 snap-center">
-                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-neon-orange transition-all duration-300"
+                        <div class="relative w-[200px] md:w-[240px] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-xl shadow-black/50 group cursor-pointer border-2 border-dark-border hover:border-brand-pink transition-all duration-300"
                              @click="playVideo(6)">
                             <video preload="metadata" poster="images/poster_snaptik_7580571136329633032_hd.webp" x-ref="video6" src="videos/snaptik_7580571136329633032_hd.mp4" 
                                    class="w-full h-full object-cover" 
@@ -611,7 +624,7 @@
                                    @ended="playing = null"></video>
                             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all flex items-center justify-center"
                                  x-show="playing !== 6">
-                                <div class="w-14 h-14 bg-neon-orange/90 rounded-full flex items-center justify-center shadow-lg">
+                                <div class="w-14 h-14 bg-brand-pink/90 rounded-full flex items-center justify-center shadow-lg">
                                     <svg class="w-6 h-6 text-black mr-[-2px]" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                                     </svg>
@@ -790,36 +803,36 @@
                             <div class="space-y-3">
                                 <label class="cursor-pointer block">
                                     <input type="radio" name="quantity" value="1" x-model="quantity" class="hidden peer">
-                                    <div class="peer-checked:border-neon-orange peer-checked:bg-neon-orange/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
+                                    <div class="peer-checked:border-brand-pink peer-checked:bg-brand-pink/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
                                         <div class="flex items-center gap-2">
                                             <span class="text-lg">🎁</span>
                                             <span class="font-semibold">قطعة واحدة</span>
-                                            <span class="text-neon-orange">✨</span>
+                                            <span class="text-brand-pink">✨</span>
                                         </div>
-                                        <span class="font-bold text-neon-orange">2,200 ج.م</span>
+                                        <span class="font-bold text-brand-pink">2,200 ج.م</span>
                                     </div>
                                 </label>
                                 <label class="cursor-pointer block relative">
                                     <input type="radio" name="quantity" value="2" x-model="quantity" class="hidden peer">
-                                    <div class="peer-checked:border-neon-orange peer-checked:bg-neon-orange/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
+                                    <div class="peer-checked:border-brand-pink peer-checked:bg-brand-pink/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
                                         <div class="flex items-center gap-2">
                                             <span class="text-lg">🎁</span>
                                             <span class="font-semibold">قطعتين</span>
                                             <span class="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">وفر 9%</span>
                                         </div>
-                                        <span class="font-bold text-neon-orange">3,999 ج.م</span>
+                                        <span class="font-bold text-brand-pink">3,999 ج.م</span>
                                     </div>
-                                    <span class="absolute -top-2 right-4 bg-neon-orange text-black text-xs font-bold px-2 py-0.5 rounded-full">⭐ الأكثر مبيعاً</span>
+                                    <span class="absolute -top-2 right-4 bg-brand-pink text-black text-xs font-bold px-2 py-0.5 rounded-full">⭐ الأكثر مبيعاً</span>
                                 </label>
                                 <label class="cursor-pointer block">
                                     <input type="radio" name="quantity" value="3" x-model="quantity" class="hidden peer">
-                                    <div class="peer-checked:border-neon-orange peer-checked:bg-neon-orange/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
+                                    <div class="peer-checked:border-brand-pink peer-checked:bg-brand-pink/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
                                         <div class="flex items-center gap-2">
                                             <span class="text-lg">🎁</span>
                                             <span class="font-semibold">3 قطع</span>
                                             <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">وفر 15%</span>
                                         </div>
-                                        <span class="font-bold text-neon-orange">5,599 ج.م</span>
+                                        <span class="font-bold text-brand-pink">5,599 ج.م</span>
                                     </div>
                                 </label>
                             </div>
@@ -829,7 +842,7 @@
                         <div>
                             <label class="block text-lg font-bold mb-2">الاسم بالكامل *</label>
                             <input type="text" required x-model="name"
-                                   class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-neon-orange focus:outline-none transition-colors"
+                                   class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-brand-pink focus:outline-none transition-colors"
                                    placeholder="أدخل اسمك">
                         </div>
                         
@@ -837,7 +850,7 @@
                         <div>
                             <label class="block text-lg font-bold mb-2">رقم الهاتف *</label>
                             <input type="tel" required x-model="phone"
-                                   class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-neon-orange focus:outline-none transition-colors"
+                                   class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-brand-pink focus:outline-none transition-colors"
                                    placeholder="01xxxxxxxxx"
                                    oninput="this.value = this.value.replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))">
                         </div>
@@ -846,7 +859,7 @@
                         <div>
                             <label class="block text-lg font-bold mb-2">رقم الواتساب أو رقم إضافي *</label>
                             <input type="tel" required x-model="whatsapp"
-                                   class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-neon-orange focus:outline-none transition-colors"
+                                   class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-brand-pink focus:outline-none transition-colors"
                                    placeholder="رقم إضافي للتواصل"
                                    oninput="this.value = this.value.replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))">
                         </div>
@@ -855,7 +868,7 @@
                         <div>
                             <label class="block text-lg font-bold mb-2">المحافظة *</label>
                             <select required x-model="governorate"
-                                    class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-neon-orange focus:outline-none transition-colors">
+                                    class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-brand-pink focus:outline-none transition-colors">
                                 <option value="">اختر المحافظة</option>
                                 <option value="القاهرة">القاهرة</option>
                                 <option value="الجيزة">الجيزة</option>
@@ -891,14 +904,14 @@
                         <div>
                             <label class="block text-lg font-bold mb-2">العنوان بالتفصيل *</label>
                             <textarea required rows="3" x-model="address"
-                                      class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-neon-orange focus:outline-none transition-colors resize-none"
+                                      class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-brand-pink focus:outline-none transition-colors resize-none"
                                       placeholder="المدينة - الشارع - رقم العمارة - علامة مميزة"></textarea>
                         </div>
                         
                         <!-- Total -->
-                        <div class="bg-neon-orange/10 border border-neon-orange/30 rounded-xl p-6 text-center">
+                        <div class="bg-brand-pink/10 border border-brand-pink/30 rounded-xl p-6 text-center">
                             <div class="text-gray-400 mb-2">الإجمالي المطلوب</div>
-                            <div class="text-4xl font-black text-neon-orange" x-text="total.toLocaleString() + ' جنيه'"></div>
+                            <div class="text-4xl font-black text-brand-pink" x-text="total.toLocaleString() + ' جنيه'"></div>
                             <div class="text-green-400 text-sm mt-2">✅ شامل الشحن المجاني</div>
                         </div>
                         
@@ -906,7 +919,7 @@
                         <button type="submit" 
                                 :disabled="submitting"
                                 :class="submitting ? 'opacity-70 cursor-wait' : 'hover:scale-105'"
-                                class="w-full bg-neon-orange hover:bg-orange-500 text-black text-xl font-black py-5 rounded-full pulse-btn transition-all duration-300">
+                                class="w-full bg-brand-pink hover:bg-brand-violet text-black text-xl font-black py-5 rounded-full pulse-btn transition-all duration-300">
                             <span x-show="!submitting">✅ تأكيد الطلب (الدفع عند الاستلام)</span>
                             <span x-show="submitting" class="flex items-center justify-center gap-2">
                                 <svg class="animate-spin h-6 w-6" fill="none" viewBox="0 0 24 24">
@@ -945,7 +958,7 @@
     <footer class="py-8 bg-black border-t border-dark-border">
         <div class="container mx-auto px-4 text-center">
             <div class="flex items-center justify-center gap-2 mb-4">
-                <div class="w-8 h-8 bg-neon-orange rounded-lg flex items-center justify-center">
+                <div class="w-8 h-8 bg-brand-pink rounded-lg flex items-center justify-center">
                     <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2 2H5V5h14v14zm0-16H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
                     </svg>
@@ -962,7 +975,7 @@
     </footer>
 
     <!-- Floating WhatsApp/CTA Button -->
-    <a href="#order-form" class="fixed bottom-6 left-6 z-50 bg-neon-orange hover:bg-orange-500 text-black font-bold px-6 py-3 rounded-full shadow-lg shadow-neon-orange/30 transition-all duration-300 hover:scale-110 flex items-center gap-2">
+    <a href="#order-form" class="fixed bottom-6 left-6 z-50 bg-brand-pink hover:bg-brand-violet text-black font-bold px-6 py-3 rounded-full shadow-lg shadow-brand-pink/30 transition-all duration-300 hover:scale-110 flex items-center gap-2">
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
         </svg>
