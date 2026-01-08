@@ -62,15 +62,11 @@
         .lcp-image{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;padding:1rem;background:#1a1a1a;border-radius:1rem}
     </style>
     
-    <!-- Load Tailwind with async but immediate start -->
-    <script async src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Tailwind - deferred to prevent render blocking -->
     <script>
-        window.addEventListener('load',function(){
-            if(typeof tailwind!=='undefined'){
-                tailwind.config={theme:{extend:{colors:{'brand-pink':'#f806b8','brand-purple':'#4c1e81','brand-violet':'#7c16d6','brand-light':'#eb64f6','brand-magenta':'#cf016f','brand-accent':'#a731ce','dark-bg':'#0a0a0a','dark-card':'#1a1a1a','dark-border':'#2a2a2a'},fontFamily:{'cairo':['Cairo','sans-serif']}}}};
-            }
-        });
+        window.tailwind={config:{theme:{extend:{colors:{'brand-pink':'#f806b8','brand-purple':'#4c1e81','brand-violet':'#7c16d6','brand-light':'#eb64f6','brand-magenta':'#cf016f','brand-accent':'#a731ce','dark-bg':'#0a0a0a','dark-card':'#1a1a1a','dark-border':'#2a2a2a'},fontFamily:{'cairo':['Cairo','sans-serif']}}}}};
     </script>
+    <script defer src="https://cdn.tailwindcss.com"></script>
     
     <!-- Defer Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -81,19 +77,26 @@
     
     <!-- Prevent CLS: Reserve space for dynamic content -->
     <style>
-        .hero-section{min-height:600px}
-        .video-card{aspect-ratio:9/16;min-height:300px}
-        .product-image{aspect-ratio:1/1}
+        /* Critical layout stability */
+        .hero-section{min-height:600px;contain:layout style}
+        .video-card{aspect-ratio:9/16;min-height:300px;contain:layout}
+        .product-image{aspect-ratio:1/1;contain:layout}
         .feature-grid{min-height:200px}
+        /* Grid layouts */
         .grid-cols-4{display:grid;grid-template-columns:repeat(4,1fr)}
-        /* Fix CLS for trust icons grid */
-        .grid.grid-cols-4.gap-2{min-height:80px}
+        .grid.grid-cols-4.gap-2{min-height:80px;contain:layout style}
         .grid.grid-cols-4.gap-2>div{min-height:70px}
-        /* Fix thumbnails grid */
         .grid.grid-cols-4.gap-2 button{min-height:80px;aspect-ratio:1/1}
-        /* Fix main product image CLS */
-        .order-1.lg\:order-2{min-height:400px}
-        .order-2.lg\:order-1{min-height:500px}
+        /* Product columns */
+        .order-1.lg\:order-2{min-height:400px;contain:layout style}
+        .order-2.lg\:order-1{min-height:500px;contain:layout style}
+        /* Price and text stability */
+        .text-4xl{min-height:2.5rem;display:inline-block}
+        .text-xl{min-height:1.5rem}
+        /* Header stability */
+        header{height:64px;contain:layout}
+        /* Section stability */
+        section{contain:layout style}
     </style>
     <style>
         @keyframes pulse-glow {
