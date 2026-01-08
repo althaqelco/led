@@ -722,93 +722,156 @@
         </div>
     </section>
 
-    <!-- Real Usage Gallery -->
-    <section class="py-12 bg-dark-bg">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">
-                <span class="gradient-text">🚗 شاهد المنتج في الواقع</span>
-            </h2>
-            <p class="text-gray-600 text-center mb-8">استخدامات حقيقية في السيارات والمحلات التجارية</p>
-            
-            <!-- Cars Section -->
-            <div class="mb-8">
-                <h3 class="text-xl font-bold text-center mb-4 text-brand-pink">🚘 في السيارات</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                        <img loading="lazy" src="images/uber-led.webp" alt="شاشة LED في سيارة أوبر" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform" width="300" height="300" decoding="async">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <span class="text-white text-sm font-semibold">سيارة أوبر - HELLO</span>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                        <img loading="lazy" src="images/car-nawwart.webp" alt="شاشة LED نورت" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform" width="300" height="300" decoding="async">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <span class="text-white text-sm font-semibold">نورت 💚</span>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                        <img loading="lazy" src="images/fiat-haseb.webp" alt="شاشة LED حاسب" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform" width="300" height="300" decoding="async">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <span class="text-white text-sm font-semibold">حاسب! ⚠️</span>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                        <img loading="lazy" src="images/car-stop-sign.webp" alt="شاشة LED علامة توقف" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform" width="300" height="300" decoding="async">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <span class="text-white text-sm font-semibold">STOP 🛑</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- Real Usage Gallery - Bento Grid Design -->
+    <section class="py-16 relative overflow-hidden" style="background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 50%, #f8fafc 100%);">
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 left-0 w-72 h-72 bg-brand-pink/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-purple/10 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-brand-pink/10 text-brand-pink text-sm font-bold rounded-full mb-4">استخدامات حقيقية</span>
+                <h2 class="text-3xl md:text-4xl font-black text-gray-800 mb-4">
+                    شاهد <span class="gradient-text">الشاشة</span> في كل مكان
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">من سيارات أوبر للمحلات التجارية - شاشة LED المرنة تناسب كل الاستخدامات</p>
             </div>
             
-            <!-- Commercial Section -->
-            <div class="mb-8">
-                <h3 class="text-xl font-bold text-center mb-4 text-brand-pink">🏪 للمحلات والمقاهي</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                        <img loading="lazy" src="images/cairo-coffeeshop.webp" alt="مقهى في القاهرة" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform" width="300" height="300" decoding="async">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <span class="text-white text-sm font-semibold">مقهى ☕</span>
-                        </div>
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto">
+                
+                <!-- Large Featured Card - Uber -->
+                <div class="col-span-2 row-span-2 group relative overflow-hidden rounded-3xl shadow-2xl cursor-pointer" style="min-height: 400px;">
+                    <img loading="lazy" src="images/uber-led.webp" alt="شاشة LED في سيارة أوبر" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="600" height="600" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <span class="inline-block px-3 py-1 bg-brand-pink text-white text-xs font-bold rounded-full mb-3">الأكثر طلباً</span>
+                        <h3 class="text-white text-2xl font-bold mb-2">سائقي أوبر وكريم</h3>
+                        <p class="text-white/80 text-sm">رحب بالركاب برسالة HELLO واشكرهم بـ THANKS 5 STARS</p>
                     </div>
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                        <img loading="lazy" src="images/storefront-maftouh.webp" alt="واجهة محل مفتوح" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform" width="300" height="300" decoding="async">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <span class="text-white text-sm font-semibold">مفتوح 🟢</span>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                        <img loading="lazy" src="images/coffee-shop-entrance.webp" alt="مدخل مقهى" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform" width="300" height="300" decoding="async">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <span class="text-white text-sm font-semibold">مدخل مقهى 🚪</span>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                        <img loading="lazy" src="images/office-checkin.webp" alt="استقبال مكتب" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform" width="300" height="300" decoding="async">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <span class="text-white text-sm font-semibold">Check-in 🏢</span>
-                        </div>
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                     </div>
                 </div>
+                
+                <!-- Card - Nawwart -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer aspect-square">
+                    <img loading="lazy" src="images/car-nawwart.webp" alt="شاشة LED نورت" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="300" height="300" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <span class="text-green-400 text-2xl">💚</span>
+                        <h4 class="text-white font-bold">نوّرت</h4>
+                        <p class="text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity">رسالة ترحيب مصرية</p>
+                    </div>
+                </div>
+                
+                <!-- Card - Fiat Haseb -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer aspect-square">
+                    <img loading="lazy" src="images/fiat-haseb.webp" alt="شاشة LED حاسب" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="300" height="300" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <span class="text-yellow-400 text-2xl">⚠️</span>
+                        <h4 class="text-white font-bold">حاسب!</h4>
+                        <p class="text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity">تحذير للسيارات الخلفية</p>
+                    </div>
+                </div>
+                
+                <!-- Card - Stop Sign -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer aspect-square">
+                    <img loading="lazy" src="images/car-stop-sign.webp" alt="شاشة LED علامة توقف" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="300" height="300" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <span class="text-red-500 text-2xl">🛑</span>
+                        <h4 class="text-white font-bold">STOP</h4>
+                        <p class="text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity">علامة توقف متحركة</p>
+                    </div>
+                </div>
+                
+                <!-- Card - App Drawing -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer aspect-square">
+                    <img loading="lazy" src="images/app-drawing.webp" alt="رسم على التطبيق" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="300" height="300" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-purple/90 to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <span class="text-pink-400 text-2xl">❤️</span>
+                        <h4 class="text-white font-bold">ارسم بنفسك</h4>
+                        <p class="text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity">صمم رسالتك الخاصة</p>
+                    </div>
+                </div>
+                
+                <!-- Wide Card - Coffee Shop -->
+                <div class="col-span-2 group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer" style="min-height: 200px;">
+                    <img loading="lazy" src="images/cairo-coffeeshop.webp" alt="مقهى في القاهرة" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="600" height="300" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <span class="inline-block px-2 py-1 bg-amber-500 text-white text-xs font-bold rounded mb-2">للمحلات</span>
+                        <h4 class="text-white text-xl font-bold">المقاهي والكافيهات</h4>
+                        <p class="text-white/70 text-sm">اجذب الزبائن بعروض متحركة</p>
+                    </div>
+                </div>
+                
+                <!-- Card - Storefront -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer aspect-square">
+                    <img loading="lazy" src="images/storefront-maftouh.webp" alt="واجهة محل مفتوح" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="300" height="300" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <span class="text-green-500 text-2xl">🟢</span>
+                        <h4 class="text-white font-bold">مفتوح</h4>
+                        <p class="text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity">لافتة واجهة المحل</p>
+                    </div>
+                </div>
+                
+                <!-- Card - Office -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer aspect-square">
+                    <img loading="lazy" src="images/office-checkin.webp" alt="استقبال مكتب" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="300" height="300" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <span class="text-blue-400 text-2xl">🏢</span>
+                        <h4 class="text-white font-bold">Check-in</h4>
+                        <p class="text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity">استقبال المكاتب</p>
+                    </div>
+                </div>
+                
+                <!-- Card - Coffee Shop Entrance -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer aspect-square">
+                    <img loading="lazy" src="images/coffee-shop-entrance.webp" alt="مدخل مقهى" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="300" height="300" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <span class="text-amber-400 text-2xl">☕</span>
+                        <h4 class="text-white font-bold">مدخل مقهى</h4>
+                        <p class="text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity">شاشة على كل باب</p>
+                    </div>
+                </div>
+                
+                <!-- Card - Macro LED -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer aspect-square">
+                    <img loading="lazy" src="images/macro-led-panel.webp" alt="شاشة LED ماكرو" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="300" height="300" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-purple/80 to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <span class="text-purple-400 text-2xl">🎨</span>
+                        <h4 class="text-white font-bold">RGB حقيقي</h4>
+                        <p class="text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity">16 مليون لون</p>
+                    </div>
+                </div>
+                
             </div>
             
-            <!-- App & Product -->
-            <div>
-                <h3 class="text-xl font-bold text-center mb-4 text-brand-pink">📱 التحكم والمنتج</h3>
-                <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                        <img loading="lazy" src="images/app-drawing.webp" alt="رسم على التطبيق" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform" width="300" height="300" decoding="async">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <span class="text-white text-sm font-semibold">ارسم بنفسك ❤️</span>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                        <img loading="lazy" src="images/macro-led-panel.webp" alt="شاشة LED ماكرو" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform" width="300" height="300" decoding="async">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                            <span class="text-white text-sm font-semibold">جودة RGB 🎨</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- CTA Button -->
+            <div class="text-center mt-10">
+                <a href="#order-form" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-brand-pink to-brand-purple text-white font-bold rounded-full shadow-lg shadow-brand-pink/30 hover:shadow-xl hover:shadow-brand-pink/40 transition-all hover:scale-105">
+                    <span>اطلب شاشتك الآن</span>
+                    <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                </a>
             </div>
         </div>
     </section>
