@@ -30,24 +30,24 @@
         }
         *{font-family:'Cairo','Cairo Fallback',Arial,sans-serif;box-sizing:border-box;margin:0;padding:0}
         html{scroll-behavior:smooth}
-        body{background:#0a0a0a;color:#fff;line-height:1.5;min-height:100vh}
+        body{background:#f8fafc;color:#1e293b;line-height:1.5;min-height:100vh}
         .container{width:100%;max-width:1280px;margin:0 auto;padding:0 1rem}
         .flex{display:flex}.grid{display:grid}.hidden{display:none}
         .items-center{align-items:center}.justify-between{justify-content:space-between}.justify-center{justify-content:center}
         .gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-8{gap:2rem}
-        .text-center{text-align:center}.text-white{color:#fff}
+        .text-center{text-align:center}.text-white{color:#1e293b}
         .font-bold{font-weight:700}.font-black{font-weight:900}
         .text-sm{font-size:0.875rem}.text-lg{font-size:1.125rem}.text-xl{font-size:1.25rem}.text-2xl{font-size:1.5rem}.text-3xl{font-size:1.875rem}.text-4xl{font-size:2.25rem}
         .rounded-xl{border-radius:0.75rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}
-        .bg-dark-bg{background:#0a0a0a}.bg-dark-card{background:#1a1a1a}
-        .border{border-width:1px}.border-dark-border{border-color:#2a2a2a}
+        .bg-dark-bg{background:#f8fafc}.bg-dark-card{background:#ffffff}
+        .border{border-width:1px}.border-dark-border{border-color:#e2e8f0}
         .p-4{padding:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}
         .w-full{width:100%}.max-w-4xl{max-width:56rem}.mx-auto{margin-left:auto;margin-right:auto}
         .fixed{position:fixed}.relative{position:relative}.absolute{position:absolute}.z-50{z-index:50}
         .top-0{top:0}.left-0{left:0}.right-0{right:0}
         .overflow-hidden{overflow:hidden}.object-cover{object-fit:cover}.object-contain{object-fit:contain}
         .transition-all{transition:all 0.3s}
-        .text-gray-400{color:#9ca3af}.text-gray-500{color:#6b7280}
+        .text-gray-400{color:#64748b}.text-gray-500{color:#475569}
         .bg-brand-pink{background:#f806b8}.text-brand-pink{color:#f806b8}
         .hover\:scale-105:hover{transform:scale(1.05)}
         @media(min-width:768px){.md\:grid-cols-2{grid-template-columns:repeat(2,1fr)}.md\:text-3xl{font-size:1.875rem}}
@@ -59,12 +59,12 @@
     
     <!-- LCP optimization: inline styles for main image container -->
     <style>
-        .lcp-image{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;padding:1rem;background:#1a1a1a;border-radius:1rem}
+        .lcp-image{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;padding:1rem;background:#ffffff;border-radius:1rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1)}
     </style>
     
     <!-- Load Tailwind - deferred to prevent render blocking -->
     <script>
-        window.tailwind={config:{theme:{extend:{colors:{'brand-pink':'#f806b8','brand-purple':'#4c1e81','brand-violet':'#7c16d6','brand-light':'#eb64f6','brand-magenta':'#cf016f','brand-accent':'#a731ce','dark-bg':'#0a0a0a','dark-card':'#1a1a1a','dark-border':'#2a2a2a'},fontFamily:{'cairo':['Cairo','sans-serif']}}}}};
+        window.tailwind={config:{theme:{extend:{colors:{'brand-pink':'#f806b8','brand-purple':'#4c1e81','brand-violet':'#7c16d6','brand-light':'#eb64f6','brand-magenta':'#cf016f','brand-accent':'#a731ce','dark-bg':'#f8fafc','dark-card':'#ffffff','dark-border':'#e2e8f0'},fontFamily:{'cairo':['Cairo','sans-serif']}}}}};
     </script>
     <script defer src="https://cdn.tailwindcss.com"></script>
     
@@ -129,8 +129,9 @@
         }
 
         .feature-card {
-            background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
-            border: 1px solid #2a2a2a;
+            background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
 
         .feature-card:hover {
@@ -139,12 +140,13 @@
         }
 
         .offer-card {
-            background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .offer-card.highlighted {
             border: 3px solid #f806b8;
-            background: linear-gradient(145deg, #4c1e81 0%, #1a1a1a 100%);
+            background: linear-gradient(145deg, #fdf4ff 0%, #ffffff 100%);
         }
 
         .timeline-line {
@@ -185,7 +187,8 @@
         }
 
         .trust-icon {
-            background: linear-gradient(145deg, #1f1f1f 0%, #141414 100%);
+            background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         @keyframes flame {
@@ -214,7 +217,7 @@
         }
     </style>
 </head>
-<body class="bg-dark-bg text-white">
+<body class="bg-dark-bg text-gray-800">
 
     <!-- Egypt Flag Stripe -->
     <div class="egypt-stripe h-2 w-full fixed top-0 z-[60]"></div>
@@ -222,7 +225,7 @@
     <!-- Sticky Header -->
     <header x-data="{ scrolled: false }" 
             @scroll.window="scrolled = window.pageYOffset > 50"
-            :class="scrolled ? 'bg-dark-bg/95 backdrop-blur-md shadow-lg shadow-black/50' : 'bg-dark-bg/80'"
+            :class="scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-gray-200/50' : 'bg-white/80'"
             class="fixed top-2 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-4 py-2 flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -240,7 +243,7 @@
     </header>
 
     <!-- Hero Section - Shopify Style -->
-    <section class="pt-16 pb-6 bg-dark-bg" style="padding-top:4rem;padding-bottom:1.5rem;background:#0a0a0a;min-height:800px;" x-data="{ 
+    <section class="pt-16 pb-6 bg-dark-bg" style="padding-top:4rem;padding-bottom:1.5rem;background:#f8fafc;min-height:800px;" x-data="{ 
         selectedQty: '1', 
         mainImage: 'images/main.webp',
         images: [
@@ -814,7 +817,7 @@
     </section>
 
     <!-- Order Form Section -->
-    <section class="py-20 relative overflow-hidden" id="order-form" style="background: linear-gradient(135deg, #4c1e81 0%, #1a0a2e 50%, #0a0a0a 100%);">
+    <section class="py-20 relative overflow-hidden" id="order-form" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);">
         <!-- Decorative glow effects -->
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-pink/20 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-violet/20 rounded-full blur-3xl"></div>
@@ -835,7 +838,7 @@
                          width="512" height="512" decoding="async">
                 </div>
                 
-                <form class="relative bg-gradient-to-br from-brand-purple/30 to-dark-card border-2 border-brand-pink/30 rounded-3xl p-8 shadow-2xl shadow-brand-pink/10 backdrop-blur-sm" 
+                <form class="relative bg-white/95 border-2 border-brand-pink/30 rounded-3xl p-8 shadow-2xl shadow-brand-pink/20 backdrop-blur-sm" 
                       x-data="{ quantity: '1', total: 2200, name: '', phone: '', whatsapp: '', governorate: '', address: '', submitting: false }" 
                       x-effect="total = quantity === '1' ? 2200 : (quantity === '2' ? 3999 : 5599)"
                       @submit.prevent="
@@ -910,7 +913,7 @@
                         <div>
                             <label class="block text-lg font-bold mb-2">الاسم بالكامل *</label>
                             <input type="text" required x-model="name"
-                                   class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-brand-pink focus:outline-none transition-colors"
+                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 text-lg text-gray-800 focus:border-brand-pink focus:outline-none transition-colors"
                                    placeholder="أدخل اسمك">
                         </div>
                         
@@ -918,7 +921,7 @@
                         <div>
                             <label class="block text-lg font-bold mb-2">رقم الهاتف *</label>
                             <input type="tel" required x-model="phone"
-                                   class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-brand-pink focus:outline-none transition-colors"
+                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 text-lg text-gray-800 focus:border-brand-pink focus:outline-none transition-colors"
                                    placeholder="01xxxxxxxxx"
                                    oninput="this.value = this.value.replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))">
                         </div>
@@ -927,7 +930,7 @@
                         <div>
                             <label class="block text-lg font-bold mb-2">رقم الواتساب أو رقم إضافي *</label>
                             <input type="tel" required x-model="whatsapp"
-                                   class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-brand-pink focus:outline-none transition-colors"
+                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 text-lg text-gray-800 focus:border-brand-pink focus:outline-none transition-colors"
                                    placeholder="رقم إضافي للتواصل"
                                    oninput="this.value = this.value.replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))">
                         </div>
@@ -936,7 +939,7 @@
                         <div>
                             <label class="block text-lg font-bold mb-2">المحافظة *</label>
                             <select required x-model="governorate"
-                                    class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-brand-pink focus:outline-none transition-colors">
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 text-lg text-gray-800 focus:border-brand-pink focus:outline-none transition-colors">
                                 <option value="">اختر المحافظة</option>
                                 <option value="القاهرة">القاهرة</option>
                                 <option value="الجيزة">الجيزة</option>
@@ -972,13 +975,13 @@
                         <div>
                             <label class="block text-lg font-bold mb-2">العنوان بالتفصيل *</label>
                             <textarea required rows="3" x-model="address"
-                                      class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-4 text-lg focus:border-brand-pink focus:outline-none transition-colors resize-none"
+                                      class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 text-lg text-gray-800 focus:border-brand-pink focus:outline-none transition-colors resize-none"
                                       placeholder="المدينة - الشارع - رقم العمارة - علامة مميزة"></textarea>
                         </div>
                         
                         <!-- Total -->
                         <div class="bg-brand-pink/10 border border-brand-pink/30 rounded-xl p-6 text-center">
-                            <div class="text-gray-400 mb-2">الإجمالي المطلوب</div>
+                            <div class="text-gray-600 mb-2">الإجمالي المطلوب</div>
                             <div class="text-4xl font-black text-brand-pink" x-text="total.toLocaleString() + ' جنيه'"></div>
                             <div class="text-green-400 text-sm mt-2">✅ شامل الشحن المجاني</div>
                         </div>
@@ -1003,7 +1006,7 @@
                             <p class="text-green-400 font-semibold">
                                 🛡️ ضمان استبدال واسترجاع خلال 14 يوم
                             </p>
-                            <div class="flex flex-wrap justify-center gap-4 text-gray-400 text-sm">
+                            <div class="flex flex-wrap justify-center gap-4 text-gray-600 text-sm">
                                 <span>✅ ضمان 3 سنوات</span>
                                 <span>✅ شحن مجاني</span>
                                 <span>✅ الدفع عند الاستلام</span>
@@ -1024,7 +1027,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 bg-black border-t border-dark-border">
+    <footer class="py-8 bg-gray-100 border-t border-gray-200">
         <div class="container mx-auto px-4 text-center">
             <div class="flex items-center justify-center gap-2 mb-4">
                 <div class="w-8 h-8 bg-brand-pink rounded-lg flex items-center justify-center">
@@ -1034,7 +1037,7 @@
                 </div>
                 <span class="text-lg font-bold">LED Matrix Egypt</span>
             </div>
-            <p class="text-gray-500 text-sm">
+            <p class="text-gray-600 text-sm">
                 © 2026 LED Matrix Egypt. جميع الحقوق محفوظة.
             </p>
             <div class="mt-6">
