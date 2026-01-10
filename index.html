@@ -243,6 +243,68 @@
             display: inline-block;
             animation: float-light 3s ease-in-out infinite;
         }
+
+        /* Premium Offer Cards Styles */
+        .offer-card-premium {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .offer-card-premium:hover {
+            border-color: rgba(248, 6, 184, 0.5);
+            background: rgba(30, 30, 30, 0.8);
+            transform: translateX(-5px);
+        }
+
+        .peer-checked + .offer-card-premium {
+            background: linear-gradient(90deg, rgba(76, 30, 129, 0.4) 0%, rgba(248, 6, 184, 0.2) 100%);
+            border-color: #f806b8;
+            box-shadow: 0 0 25px rgba(248, 6, 184, 0.3);
+            transform: scale(1.02);
+        }
+
+        .offer-price-premium {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #f806b8;
+            text-shadow: 0 0 10px rgba(248, 6, 184, 0.3);
+        }
+
+        .offer-badge-pill {
+            padding: 2px 12px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Icon enhancements */
+        .icon-glow {
+            filter: drop-shadow(0 0 5px rgba(248, 6, 184, 0.5));
+        }
+
+        .star-premium {
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+        }
+
+        .badge-green-pro { background: #10b981; color: white; }
+        .badge-red-pro { background: #ef4444; color: white; }
+        .badge-pink-pro { 
+            background: #f806b8; 
+            color: white;
+            box-shadow: 0 0 15px rgba(248, 6, 184, 0.5);
+        }
     </style>
 </head>
 <body class="bg-dark-bg text-white">
@@ -1057,44 +1119,48 @@
                         });
                       ">
                     <div class="space-y-6">
-                        <!-- Quantity/Offer Selection First -->
                         <div>
-                            <label class="block text-lg font-bold mb-4">اختر من العروض الموجودة *</label>
-                            <div class="space-y-3">
-                                <label class="cursor-pointer block">
+                            <label class="block text-lg font-bold mb-6 text-center lg:text-right">اختر من العروض الموجودة *</label>
+                            <div class="space-y-4">
+                                <!-- Offer 1 -->
+                                <label class="cursor-pointer block group">
                                     <input type="radio" name="quantity" value="1" x-model="quantity" class="hidden peer">
-                                    <div class="peer-checked:border-brand-pink peer-checked:bg-brand-pink/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-lg animate-icon-pulse">🎁</span>
-                                            <span class="font-semibold">قطعة واحدة</span>
-                                            <span class="text-brand-pink animate-float-light">✨</span>
+                                    <div class="offer-card-premium">
+                                        <div class="offer-price-premium">2,200 ج.م</div>
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-brand-pink animate-float-light text-xl icon-glow">✨</span>
+                                            <span class="font-black text-xl">قطعة واحدة</span>
+                                            <span class="text-2xl animate-icon-pulse icon-glow">🎁</span>
                                         </div>
-                                        <span class="font-bold text-brand-pink">2,200 ج.م</span>
                                     </div>
                                 </label>
-                                <label class="cursor-pointer block relative">
+
+                                <!-- Offer 2 -->
+                                <label class="cursor-pointer block group relative">
                                     <input type="radio" name="quantity" value="2" x-model="quantity" class="hidden peer">
-                                    <div class="peer-checked:border-brand-pink peer-checked:bg-brand-pink/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-lg animate-icon-pulse">🎁</span>
-                                            <span class="font-semibold">قطعتين</span>
-                                            <span class="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">وفر 9%</span>
+                                    <div class="offer-card-premium">
+                                        <div class="offer-price-premium">3,999 ج.م</div>
+                                        <div class="flex items-center gap-3">
+                                            <span class="offer-badge-pill badge-green-pro">وفر 9%</span>
+                                            <span class="font-black text-xl">قطعتين</span>
+                                            <span class="text-2xl animate-icon-pulse icon-glow">🎁</span>
                                         </div>
-                                        <span class="font-bold text-brand-pink">3,999 ج.م</span>
                                     </div>
-                                    <span class="absolute -top-2 right-4 bg-brand-pink text-black text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                                        <span class="animate-star-rotate">⭐</span> الأكثر مبيعاً
-                                    </span>
+                                    <div class="absolute -top-3 right-8 offer-badge-pill badge-pink-pro z-10">
+                                        <span class="animate-star-rotate star-premium">⭐</span> الأكثر مبيعاً
+                                    </div>
                                 </label>
-                                <label class="cursor-pointer block">
+
+                                <!-- Offer 3 -->
+                                <label class="cursor-pointer block group">
                                     <input type="radio" name="quantity" value="3" x-model="quantity" class="hidden peer">
-                                    <div class="peer-checked:border-brand-pink peer-checked:bg-brand-pink/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-lg animate-icon-pulse">🎁</span>
-                                            <span class="font-semibold">3 قطع</span>
-                                            <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">وفر 15%</span>
+                                    <div class="offer-card-premium">
+                                        <div class="offer-price-premium">5,599 ج.م</div>
+                                        <div class="flex items-center gap-3">
+                                            <span class="offer-badge-pill badge-red-pro">وفر 15%</span>
+                                            <span class="font-black text-xl">3 قطع</span>
+                                            <span class="text-2xl animate-icon-pulse icon-glow">🎁</span>
                                         </div>
-                                        <span class="font-bold text-brand-pink">5,599 ج.م</span>
                                     </div>
                                 </label>
                             </div>
