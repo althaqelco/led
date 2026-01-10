@@ -212,6 +212,37 @@
             animation: flame 0.5s ease-in-out infinite;
             transform-origin: bottom center;
         }
+
+        @keyframes icon-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .animate-icon-pulse {
+            display: inline-block;
+            animation: icon-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes star-rotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .animate-star-rotate {
+            display: inline-block;
+            animation: star-rotate 4s linear infinite;
+        }
+
+        @keyframes float-light {
+            0%, 100% { transform: translateY(0) opacity(0.5); }
+            50% { transform: translateY(-5px) opacity(1); }
+        }
+
+        .animate-float-light {
+            display: inline-block;
+            animation: float-light 3s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="bg-dark-bg text-white">
@@ -1034,9 +1065,9 @@
                                     <input type="radio" name="quantity" value="1" x-model="quantity" class="hidden peer">
                                     <div class="peer-checked:border-brand-pink peer-checked:bg-brand-pink/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
                                         <div class="flex items-center gap-2">
-                                            <span class="text-lg">🎁</span>
+                                            <span class="text-lg animate-icon-pulse">🎁</span>
                                             <span class="font-semibold">قطعة واحدة</span>
-                                            <span class="text-brand-pink">✨</span>
+                                            <span class="text-brand-pink animate-float-light">✨</span>
                                         </div>
                                         <span class="font-bold text-brand-pink">2,200 ج.م</span>
                                     </div>
@@ -1045,19 +1076,21 @@
                                     <input type="radio" name="quantity" value="2" x-model="quantity" class="hidden peer">
                                     <div class="peer-checked:border-brand-pink peer-checked:bg-brand-pink/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
                                         <div class="flex items-center gap-2">
-                                            <span class="text-lg">🎁</span>
+                                            <span class="text-lg animate-icon-pulse">🎁</span>
                                             <span class="font-semibold">قطعتين</span>
                                             <span class="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">وفر 9%</span>
                                         </div>
                                         <span class="font-bold text-brand-pink">3,999 ج.م</span>
                                     </div>
-                                    <span class="absolute -top-2 right-4 bg-brand-pink text-black text-xs font-bold px-2 py-0.5 rounded-full">⭐ الأكثر مبيعاً</span>
+                                    <span class="absolute -top-2 right-4 bg-brand-pink text-black text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                                        <span class="animate-star-rotate">⭐</span> الأكثر مبيعاً
+                                    </span>
                                 </label>
                                 <label class="cursor-pointer block">
                                     <input type="radio" name="quantity" value="3" x-model="quantity" class="hidden peer">
                                     <div class="peer-checked:border-brand-pink peer-checked:bg-brand-pink/10 border-2 border-dark-border rounded-full py-3 px-5 flex items-center justify-between transition-all">
                                         <div class="flex items-center gap-2">
-                                            <span class="text-lg">🎁</span>
+                                            <span class="text-lg animate-icon-pulse">🎁</span>
                                             <span class="font-semibold">3 قطع</span>
                                             <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">وفر 15%</span>
                                         </div>
