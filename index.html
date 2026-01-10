@@ -265,11 +265,11 @@
             transform: translateX(-5px);
         }
 
-        .peer-checked + .offer-card-premium {
-            background: linear-gradient(90deg, rgba(76, 30, 129, 0.4) 0%, rgba(248, 6, 184, 0.2) 100%);
-            border-color: #f806b8;
-            box-shadow: 0 0 25px rgba(248, 6, 184, 0.3);
-            transform: scale(1.02);
+        .offer-card-selected {
+            background: linear-gradient(90deg, rgba(76, 30, 129, 0.5) 0%, rgba(248, 6, 184, 0.25) 100%) !important;
+            border: 2px solid #f806b8 !important;
+            box-shadow: 0 0 30px rgba(248, 6, 184, 0.4), inset 0 0 20px rgba(248, 6, 184, 0.1) !important;
+            transform: scale(1.03);
         }
 
         .offer-price-premium {
@@ -1123,9 +1123,8 @@
                             <label class="block text-lg font-bold mb-6 text-center lg:text-right">اختر من العروض الموجودة *</label>
                             <div class="space-y-4">
                                 <!-- Offer 1 -->
-                                <label class="cursor-pointer block group">
-                                    <input type="radio" name="quantity" value="1" x-model="quantity" class="hidden peer">
-                                    <div class="offer-card-premium">
+                                <label class="cursor-pointer block group" @click="quantity = '1'">
+                                    <div class="offer-card-premium" :class="quantity === '1' ? 'offer-card-selected' : ''">
                                         <div class="offer-price-premium">2,200 ج.م</div>
                                         <div class="flex items-center gap-3">
                                             <span class="text-brand-pink animate-float-light text-xl icon-glow">✨</span>
@@ -1136,9 +1135,8 @@
                                 </label>
 
                                 <!-- Offer 2 -->
-                                <label class="cursor-pointer block group relative">
-                                    <input type="radio" name="quantity" value="2" x-model="quantity" class="hidden peer">
-                                    <div class="offer-card-premium">
+                                <label class="cursor-pointer block group relative" @click="quantity = '2'">
+                                    <div class="offer-card-premium" :class="quantity === '2' ? 'offer-card-selected' : ''">
                                         <div class="offer-price-premium">3,999 ج.م</div>
                                         <div class="flex items-center gap-3">
                                             <span class="offer-badge-pill badge-green-pro">وفر 9%</span>
@@ -1152,9 +1150,8 @@
                                 </label>
 
                                 <!-- Offer 3 -->
-                                <label class="cursor-pointer block group">
-                                    <input type="radio" name="quantity" value="3" x-model="quantity" class="hidden peer">
-                                    <div class="offer-card-premium">
+                                <label class="cursor-pointer block group" @click="quantity = '3'">
+                                    <div class="offer-card-premium" :class="quantity === '3' ? 'offer-card-selected' : ''">
                                         <div class="offer-price-premium">5,599 ج.م</div>
                                         <div class="flex items-center gap-3">
                                             <span class="offer-badge-pill badge-red-pro">وفر 15%</span>
