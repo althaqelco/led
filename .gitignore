@@ -46,3 +46,6 @@ credentials.json
 
 # Logs
 *.log
+
+# Firebase cache
+.firebase/
