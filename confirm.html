@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تأكيد الطلب - LED Matrix Egypt</title>
     
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '932815542652706');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=932815542652706&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
     <!-- Preconnect for faster loading -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -267,6 +285,24 @@
             let total = 2200;
             if (quantity === '2') total = 3999;
             else if (quantity === '3') total = 5599;
+            
+            // Facebook Pixel - Track Lead & Purchase
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'LED Matrix Egypt',
+                    content_category: 'LED Screen',
+                    value: total,
+                    currency: 'EGP'
+                });
+                fbq('track', 'Purchase', {
+                    content_name: 'LED Matrix Egypt',
+                    content_ids: ['led-matrix-001'],
+                    content_type: 'product',
+                    value: total,
+                    currency: 'EGP',
+                    num_items: parseInt(quantity)
+                });
+            }
             
             // TikTok Pixel - Track Purchase/Complete Registration
             if (typeof ttq !== 'undefined') {
