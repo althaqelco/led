@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "eltaiseer-properties"
-  }
+  },
+  "targets": {
+    "eltaiseer-properties": {
+      "hosting": {
+        "eltaiseer": [
+          "eltaiseer-properties"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

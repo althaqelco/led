@@ -1,29 +1,14 @@
 {
   "hosting": {
-    "public": "out",
+    "source": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
-        "source": "/new-damietta/**",
-        "destination": "/new-damietta/index.html"
-      },
-      {
-        "source": "/new-mansoura/**",
-        "destination": "/new-mansoura/index.html"
-      },
-      {
-        "source": "/property/**",
-        "destination": "/properties/index.html"
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
+    "frameworksBackend": {
+      "region": "us-central1"
+    }
   },
   "firestore": {
     "rules": "firestore.rules"
