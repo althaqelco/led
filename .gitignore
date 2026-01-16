@@ -49,3 +49,6 @@ credentials.json
 
 # Firebase cache
 .firebase/
+
+# Local Netlify folder
+.netlify
