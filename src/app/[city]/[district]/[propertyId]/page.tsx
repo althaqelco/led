@@ -381,7 +381,7 @@ export default function PropertyDetailPage() {
               {/* Price Card - Property Finder Style */}
               <Card className={`shadow-xl border-0 overflow-hidden`}>
                 {/* Price Header */}
-                <div className="bg-emerald-900 text-white p-6">
+                <div style={{ backgroundColor: '#064e3b' }} className="text-white p-6">
                   <p className="text-sm text-white/95 mb-1">السعر الإجمالي</p>
                   <p className="text-3xl font-bold text-white">
                     {formatPrice(property.price)}
