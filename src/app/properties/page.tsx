@@ -51,6 +51,11 @@ function getPropertyUrl(property: Property): string {
 }
 
 function getDistrictSlug(districtName: string): string {
+  // Handle empty or undefined district
+  if (!districtName || districtName.trim() === "") {
+    return "unknown-district";
+  }
+
   const slugMap: Record<string, string> = {
     "الحي الأول": "first-district",
     "الحي الثاني": "second-district",
@@ -135,7 +140,7 @@ function PropertiesContent() {
     // Initial load
     const cachedProperties = getAllProperties();
     setProperties(cachedProperties);
-    
+
     // Then fetch from Firestore
     getAllPropertiesAsync().then((firestoreProperties) => {
       if (firestoreProperties.length > 0) {
@@ -290,9 +295,8 @@ function PropertiesContent() {
                   <SelectItem value="all">جميع المناطق</SelectItem>
                   {getCategories().map(({ city, categories }) => (
                     <SelectGroup key={city.id}>
-                      <SelectLabel className={`font-bold ${
-                        city.id === "new-damietta" ? "text-orange-600" : "text-emerald-600"
-                      }`}>
+                      <SelectLabel className={`font-bold ${city.id === "new-damietta" ? "text-orange-600" : "text-emerald-600"
+                        }`}>
                         {city.nameAr}
                       </SelectLabel>
                       {categories.map((category) =>

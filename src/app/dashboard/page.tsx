@@ -32,6 +32,11 @@ function getPropertyUrl(property: Property): string {
 }
 
 function getDistrictSlug(districtName: string): string {
+  // Handle empty or undefined district
+  if (!districtName || districtName.trim() === "") {
+    return "unknown-district";
+  }
+
   const slugMap: Record<string, string> = {
     "الحي الأول": "first-district",
     "الحي الثاني": "second-district",
@@ -317,11 +322,10 @@ export default function DashboardPage() {
                         <Badge variant="outline">{property.type}</Badge>
                       </td>
                       <td className="py-4 px-2">
-                        <Badge className={`${
-                          property.location.cityId === "new-damietta" 
-                            ? "bg-orange-100 text-orange-700 hover:bg-orange-200" 
+                        <Badge className={`${property.location.cityId === "new-damietta"
+                            ? "bg-orange-100 text-orange-700 hover:bg-orange-200"
                             : "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
-                        }`}>
+                          }`}>
                           {property.location.city || "دمياط الجديدة"}
                         </Badge>
                       </td>
@@ -332,13 +336,12 @@ export default function DashboardPage() {
                         {formatPrice(property.price)} ج.م
                       </td>
                       <td className="py-4 px-2">
-                        <Badge className={`${
-                          property.status === "جاهز" 
-                            ? "bg-green-500 hover:bg-green-600" 
+                        <Badge className={`${property.status === "جاهز"
+                            ? "bg-green-500 hover:bg-green-600"
                             : property.status === "تم البيع"
-                            ? "bg-red-600 hover:bg-red-700"
-                            : "bg-yellow-500 hover:bg-yellow-600"
-                        }`}>
+                              ? "bg-red-600 hover:bg-red-700"
+                              : "bg-yellow-500 hover:bg-yellow-600"
+                          }`}>
                           {property.status || "جاهز"}
                         </Badge>
                       </td>

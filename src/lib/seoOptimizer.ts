@@ -27,6 +27,11 @@ interface PropertySEOInput {
 
 // Helper function to get district slug
 function getDistrictSlug(districtName: string): string {
+  // Handle empty or undefined district
+  if (!districtName || districtName.trim() === "") {
+    return "unknown-district";
+  }
+
   const slugMap: Record<string, string> = {
     "الحي الأول": "first-district",
     "الحي الثاني": "second-district",
@@ -134,37 +139,37 @@ function formatPriceSEO(price: number): string {
  */
 export function generateSEOTitle(input: PropertySEOInput): string {
   const { type, district, area_sqm, price, bedrooms, level } = input;
-  
+
   // Build title components
   const typeText = type;
   const areaText = `${area_sqm} متر`;
   const districtText = district;
   const priceText = formatPriceSEO(price);
-  
+
   // Add bedroom info for residential
   const bedroomText = bedrooms > 0 ? `${bedrooms} غرف` : "";
-  
+
   // Add level for apartments
-  const levelText = level && !["أرض", "فيلا منفصلة"].includes(type) 
-    ? `${level}` 
+  const levelText = level && !["أرض", "فيلا منفصلة"].includes(type)
+    ? `${level}`
     : "";
-  
+
   // Construct SEO title (max ~60 chars for search engines)
   let title = `${typeText} ${areaText}`;
-  
+
   if (bedroomText) {
     title += ` ${bedroomText}`;
   }
-  
+
   title += ` ${districtText}`;
-  
+
   if (levelText) {
     title += ` ${levelText}`;
   }
-  
+
   // Add price and location brand
   title += ` - ${priceText} | ${district === "المنصورة الجديدة" ? "المنصورة الجديدة" : "دمياط الجديدة"}`;
-  
+
   return title;
 }
 
@@ -189,55 +194,55 @@ export function generateSEODescription(input: PropertySEOInput): string {
   } = input;
 
   const priceText = formatPriceSEO(price);
-  
+
   // Opening statement with primary keywords
   let seoDescription = `${type} للبيع في ${district} - ${district === "المنصورة الجديدة" ? "المنصورة الجديدة" : "دمياط الجديدة"}. `;
-  
+
   // Property details section
   seoDescription += `المساحة: ${area_sqm} متر مربع. `;
-  
+
   if (bedrooms > 0) {
     seoDescription += `${bedrooms} غرف نوم و ${bathrooms} حمام. `;
   }
-  
+
   if (level) {
     seoDescription += `الدور: ${level}. `;
   }
-  
+
   if (finishing) {
     seoDescription += `التشطيب: ${finishing}. `;
   }
-  
+
   // Status and payment info
   if (status === "تحت الإنشاء") {
     seoDescription += `العقار تحت الإنشاء. `;
   } else if (status === "جاهز") {
     seoDescription += `جاهز للسكن والتسليم الفوري. `;
   }
-  
+
   if (paymentType) {
     if (paymentType === "تقسيط" || paymentType === "كاش أو تقسيط") {
       seoDescription += `متاح التقسيط. `;
     }
   }
-  
+
   // Amenities section (important for AI search)
   if (amenities && amenities.length > 0) {
     const topAmenities = amenities.slice(0, 5).join("، ");
     seoDescription += `المميزات: ${topAmenities}. `;
   }
-  
+
   // Price call-to-action
   seoDescription += `السعر: ${priceText}. `;
-  
+
   // Add user description if provided
   if (description && description.trim()) {
     seoDescription += description.trim() + " ";
   }
-  
+
   // Closing with brand and location keywords
   seoDescription += `التيسير للعقارات - شريكك الموثوق في عقارات ${district === "المنصورة الجديدة" ? "المنصورة الجديدة" : "دمياط الجديدة"}.`;
-  
+
   return seoDescription;
 }
 
@@ -246,7 +251,7 @@ export function generateSEODescription(input: PropertySEOInput): string {
  */
 export function generateMetaKeywords(input: PropertySEOInput): string[] {
   const { type, district, area_sqm, finishing, amenities } = input;
-  
+
   const keywords: string[] = [
     ...PRIMARY_KEYWORDS,
     type,
@@ -257,26 +262,26 @@ export function generateMetaKeywords(input: PropertySEOInput): string[] {
     `عقارات ${district}`,
     `${area_sqm} متر`,
   ];
-  
+
   // Add type-specific keywords
   const typeKeywords = PROPERTY_TYPE_KEYWORDS[type] || [];
   keywords.push(...typeKeywords);
-  
+
   // Add district-specific keywords
   const districtKeywords = DISTRICT_KEYWORDS[district] || [];
   keywords.push(...districtKeywords);
-  
+
   // Add finishing keyword
   if (finishing) {
     keywords.push(finishing);
     keywords.push(`تشطيب ${finishing}`);
   }
-  
+
   // Add top amenities as keywords
   if (amenities && amenities.length > 0) {
     keywords.push(...amenities.slice(0, 3));
   }
-  
+
   // Remove duplicates
   return Array.from(new Set(keywords));
 }
@@ -286,9 +291,9 @@ export function generateMetaKeywords(input: PropertySEOInput): string[] {
  * Optimized for Google and AI search engines
  */
 export function generatePropertySchema(
-  input: PropertySEOInput & { 
-    id: string; 
-    title: string; 
+  input: PropertySEOInput & {
+    id: string;
+    title: string;
     images: string[];
     contact_whatsapp: string;
   }
@@ -318,7 +323,7 @@ export function generatePropertySchema(
     description: generateSEODescription(input),
     url: propertyUrl,
     datePosted: new Date().toISOString(),
-    
+
     // Property details
     about: {
       "@type": "Residence",
@@ -337,20 +342,20 @@ export function generatePropertySchema(
         addressCountry: "EG",
       },
     },
-    
+
     // Price
     offers: {
       "@type": "Offer",
       price: price,
       priceCurrency: "EGP",
-      availability: status === "تم البيع" 
-        ? "https://schema.org/SoldOut" 
+      availability: status === "تم البيع"
+        ? "https://schema.org/SoldOut"
         : "https://schema.org/InStock",
     },
-    
+
     // Images
     image: images.length > 0 ? images : undefined,
-    
+
     // Seller info
     seller: {
       "@type": "RealEstateAgent",
@@ -358,7 +363,7 @@ export function generatePropertySchema(
       telephone: "+201558245974",
       url: "https://eltaiseer.com",
     },
-    
+
     // Location
     contentLocation: {
       "@type": "Place",
@@ -381,20 +386,20 @@ export function enhanceTitle(userTitle: string, input: PropertySEOInput): string
   if (!userTitle || userTitle.length < 15) {
     return generateSEOTitle(input);
   }
-  
+
   // Check if title has key SEO elements
   const hasLocation = userTitle.includes("دمياط") || userTitle.includes(input.district);
   const hasType = userTitle.includes(input.type);
-  
+
   // If missing important elements, enhance the title
   if (!hasLocation && !hasType) {
     return `${userTitle} | ${input.type} ${input.district} - دمياط الجديدة`;
   }
-  
+
   if (!hasLocation) {
     return `${userTitle} | ${input.district} - دمياط الجديدة`;
   }
-  
+
   return userTitle;
 }
 
@@ -406,24 +411,24 @@ export function enhanceDescription(userDescription: string, input: PropertySEOIn
   if (!userDescription || userDescription.length < 30) {
     return generateSEODescription(input);
   }
-  
+
   // Prepend key SEO info if missing
   const priceText = formatPriceSEO(input.price);
   const hasPrice = userDescription.includes("جنيه") || userDescription.includes("مليون");
   const hasAreaInfo = userDescription.includes("متر") || userDescription.includes("م²");
-  
+
   let enhanced = userDescription;
-  
+
   // Add property summary if key info missing
   if (!hasAreaInfo || !hasPrice) {
     const summary = `${input.type} ${input.area_sqm} متر في ${input.district}. السعر: ${priceText}. `;
     enhanced = summary + enhanced;
   }
-  
+
   // Add closing brand if not present
   if (!enhanced.includes("التيسير")) {
     enhanced += " | التيسير للعقارات - دمياط الجديدة";
   }
-  
+
   return enhanced;
 }

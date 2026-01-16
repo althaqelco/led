@@ -48,6 +48,11 @@ function getPropertyUrl(property: Property): string {
 }
 
 function getDistrictSlug(districtName: string): string {
+  // Handle empty or undefined district
+  if (!districtName || districtName.trim() === "") {
+    return "unknown-district";
+  }
+  
   const slugMap: Record<string, string> = {
     "الحي الأول": "first-district",
     "الحي الثاني": "second-district",
@@ -218,6 +223,13 @@ export default function AddPropertyPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate district is selected
+    if (!formData.district || formData.district.trim() === "") {
+      alert("يرجى اختيار المنطقة");
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {

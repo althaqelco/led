@@ -232,15 +232,119 @@ export function getPropertiesPage(
   };
 }
 
-// Get related properties (same district or type)
+// Calculate similarity score between two properties (0-100%)
+export function calculateSimilarity(property1: Property, property2: Property): number {
+  let score = 0;
+  let maxScore = 0;
+  
+  // Same city (weight: 15)
+  maxScore += 15;
+  if (property1.location.cityId === property2.location.cityId) {
+    score += 15;
+  }
+  
+  // Same district (weight: 20)
+  maxScore += 20;
+  if (property1.location.district === property2.location.district) {
+    score += 20;
+  }
+  
+  // Same type (weight: 25)
+  maxScore += 25;
+  if (property1.type === property2.type) {
+    score += 25;
+  }
+  
+  // Price similarity (weight: 15) - within 30% range
+  maxScore += 15;
+  const priceDiff = Math.abs(property1.price - property2.price);
+  const avgPrice = (property1.price + property2.price) / 2;
+  const priceRatio = priceDiff / avgPrice;
+  if (priceRatio <= 0.1) score += 15;
+  else if (priceRatio <= 0.2) score += 12;
+  else if (priceRatio <= 0.3) score += 8;
+  else if (priceRatio <= 0.5) score += 4;
+  
+  // Area similarity (weight: 10) - within 30% range
+  maxScore += 10;
+  const areaDiff = Math.abs(property1.details.area_sqm - property2.details.area_sqm);
+  const avgArea = (property1.details.area_sqm + property2.details.area_sqm) / 2;
+  const areaRatio = areaDiff / avgArea;
+  if (areaRatio <= 0.1) score += 10;
+  else if (areaRatio <= 0.2) score += 8;
+  else if (areaRatio <= 0.3) score += 5;
+  else if (areaRatio <= 0.5) score += 2;
+  
+  // Bedrooms similarity (weight: 8)
+  maxScore += 8;
+  const bedroomDiff = Math.abs(property1.details.bedrooms - property2.details.bedrooms);
+  if (bedroomDiff === 0) score += 8;
+  else if (bedroomDiff === 1) score += 5;
+  else if (bedroomDiff === 2) score += 2;
+  
+  // Same status (weight: 5)
+  maxScore += 5;
+  if (property1.status === property2.status) {
+    score += 5;
+  }
+  
+  // Same payment type (weight: 2)
+  maxScore += 2;
+  if (property1.payment.type === property2.payment.type) {
+    score += 2;
+  }
+  
+  return Math.round((score / maxScore) * 100);
+}
+
+// Get related properties with smart similarity algorithm (90% threshold)
 export function getRelatedProperties(property: Property, limit: number = 4): Property[] {
-  return getAllProperties()
-    .filter(
-      (p: Property) =>
-        p.id !== property.id &&
-        (p.location.district === property.location.district || p.type === property.type)
-    )
-    .slice(0, limit);
+  const allProperties = getAllProperties();
+  
+  // Calculate similarity for all properties
+  const withSimilarity = allProperties
+    .filter((p: Property) => p.id !== property.id)
+    .map((p: Property) => ({
+      property: p,
+      similarity: calculateSimilarity(property, p)
+    }))
+    .sort((a, b) => b.similarity - a.similarity);
+  
+  // Get top matches (prioritize 90%+ similarity, but return best available)
+  const highSimilarity = withSimilarity.filter(item => item.similarity >= 90);
+  
+  if (highSimilarity.length >= limit) {
+    return highSimilarity.slice(0, limit).map(item => item.property);
+  }
+  
+  // If not enough 90%+ matches, get the best available
+  return withSimilarity.slice(0, limit).map(item => item.property);
+}
+
+// Get related properties async version - from Firestore only
+export async function getRelatedPropertiesAsync(property: Property, limit: number = 4): Promise<Property[]> {
+  try {
+    // Get properties directly from Firestore only (no cache/mock fallback)
+    const allProperties = await getPropertiesFromFirestore();
+    
+    // If no properties in Firestore, return empty array
+    if (!allProperties || allProperties.length === 0) {
+      return [];
+    }
+    
+    const withSimilarity = allProperties
+      .filter((p: Property) => p.id !== property.id)
+      .map((p: Property) => ({
+        property: p,
+        similarity: calculateSimilarity(property, p)
+      }))
+      .sort((a, b) => b.similarity - a.similarity);
+    
+    return withSimilarity.slice(0, limit).map(item => item.property);
+  } catch (error) {
+    console.error("Error fetching related properties from Firestore:", error);
+    return [];
+  }
 }
 
 // Get featured properties (verified ones)

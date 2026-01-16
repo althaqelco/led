@@ -29,16 +29,16 @@ const ITEMS_PER_PAGE = 20;
 export default function CityPage() {
   const params = useParams();
   const citySlug = params.city as string;
-  
+
   // Validate city
   if (!VALID_CITIES.includes(citySlug)) {
     notFound();
   }
-  
+
   const cityId = citySlug as CityId;
   const city = CITIES[cityId];
   const cityData = CITY_DATA[cityId];
-  
+
   const [properties, setProperties] = useState<Property[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedDistricts, setSelectedDistricts] = useState<string[]>([]);
@@ -174,21 +174,20 @@ export default function CityPage() {
           <p className="text-gray-400 text-sm max-w-2xl">
             {city.description}
           </p>
-          
+
           {/* Districts Quick Links */}
           <div className="mt-6 flex flex-wrap gap-2">
-            {cityData.categories.slice(0, 2).flatMap(cat => 
+            {cityData.categories.slice(0, 2).flatMap(cat =>
               cat.districts.slice(0, 4).map(district => {
                 const districtSlug = getDistrictSlug(district);
                 return (
                   <Link
                     key={district}
                     href={`/${citySlug}/${districtSlug}`}
-                    className={`px-3 py-1 rounded-full text-sm ${
-                      isNewMansoura 
-                        ? "bg-emerald-800/50 text-emerald-200 hover:bg-emerald-700/50" 
+                    className={`px-3 py-1 rounded-full text-sm ${isNewMansoura
+                        ? "bg-emerald-800/50 text-emerald-200 hover:bg-emerald-700/50"
                         : "bg-orange-800/50 text-orange-200 hover:bg-orange-700/50"
-                    } transition-colors`}
+                      } transition-colors`}
                   >
                     {district}
                   </Link>
@@ -246,7 +245,7 @@ export default function CityPage() {
               selectedStatus={selectedStatus}
               selectedPaymentMethod={selectedPaymentMethod}
               priceRange={priceRange}
-              onCityChange={() => {}}
+              onCityChange={() => { }}
               onDistrictChange={setSelectedDistricts}
               onTypeChange={setSelectedTypes}
               onStatusChange={setSelectedStatus}
@@ -264,14 +263,13 @@ export default function CityPage() {
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
               </div>
             ) : paginatedProperties.length > 0 ? (
-              <div className={`grid gap-6 ${
-                viewMode === "grid" 
-                  ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" 
+              <div className={`grid gap-6 ${viewMode === "grid"
+                  ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                   : "grid-cols-1"
-              }`}>
+                }`}>
                 {paginatedProperties.map((property) => (
-                  <PropertyCard 
-                    key={property.id} 
+                  <PropertyCard
+                    key={property.id}
                     property={property}
                   />
                 ))}
@@ -345,7 +343,7 @@ export default function CityPage() {
                     selectedStatus={selectedStatus}
                     selectedPaymentMethod={selectedPaymentMethod}
                     priceRange={priceRange}
-                    onCityChange={() => {}}
+                    onCityChange={() => { }}
                     onDistrictChange={setSelectedDistricts}
                     onTypeChange={setSelectedTypes}
                     onStatusChange={setSelectedStatus}
@@ -367,7 +365,7 @@ export default function CityPage() {
           </h2>
           <div className="prose prose-gray max-w-none text-gray-600 leading-relaxed">
             <p>{city.description}</p>
-            
+
             <h3 className="text-xl font-bold text-gray-800 mt-6 mb-3">
               أحياء ومناطق {city.nameAr}
             </h3>
@@ -382,7 +380,7 @@ export default function CityPage() {
                       const districtSlug = getDistrictSlug(district);
                       return (
                         <li key={district}>
-                          <Link 
+                          <Link
                             href={`/${citySlug}/${districtSlug}`}
                             className="hover:text-orange-600"
                           >
@@ -409,6 +407,11 @@ export default function CityPage() {
 
 // Helper function to get district slug
 function getDistrictSlug(districtName: string): string {
+  // Handle empty or undefined district
+  if (!districtName || districtName.trim() === "") {
+    return "unknown-district";
+  }
+
   const slugMap: Record<string, string> = {
     // New Damietta
     "الحي الأول": "first-district",
@@ -463,7 +466,7 @@ function getDistrictSlug(districtName: string): string {
     "شاطئ المنصورة الجديدة": "beach",
     "منتجعات الساحل": "coastal-resorts",
   };
-  
+
   return slugMap[districtName] || districtName.toLowerCase().replace(/\s+/g, "-").replace(/[()]/g, "");
 }
 
