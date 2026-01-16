@@ -13,6 +13,7 @@ const firebaseConfig = {
   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "eltaiseer-properties.firebasestorage.app",
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "495642364898",
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:495642364898:web:a39ed1d925f46d8fb5c7bb",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-RGJFHJZRTZ",
 };
 
 // Initialize Firebase only once
