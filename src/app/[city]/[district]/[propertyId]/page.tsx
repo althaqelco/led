@@ -288,12 +288,19 @@ export default function PropertyDetailPage() {
             <Card className="shadow-lg">
               <CardContent className="p-6">
                 {/* Header with Price for Mobile */}
-                <div className="lg:hidden mb-4 p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl">
-                  <p className="text-sm text-gray-500 mb-1">السعر</p>
-                  <p className={`text-2xl font-bold text-${themeColor}-600`}>
+                <div
+                  className="lg:hidden mb-4 p-4 rounded-xl"
+                  style={{
+                    background: isNM
+                      ? 'linear-gradient(135deg, #065f46 0%, #047857 100%)'
+                      : 'linear-gradient(135deg, #9a3412 0%, #c2410c 100%)'
+                  }}
+                >
+                  <p className="text-sm text-white/90 mb-1">السعر</p>
+                  <p className="text-2xl font-bold text-white">
                     {formatPrice(property.price)}
                   </p>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-xs text-white/80">
                     {Math.round(property.price / property.details.area_sqm).toLocaleString()} جنيه/م²
                   </p>
                 </div>
@@ -380,18 +387,25 @@ export default function PropertyDetailPage() {
             <div className="sticky top-4 space-y-6">
               {/* Price Card - Property Finder Style */}
               <Card className={`shadow-xl border-0 overflow-hidden`}>
-                {/* Price Header */}
-                <div style={{ backgroundColor: '#064e3b' }} className="text-white p-6">
-                  <p className="text-sm text-white/95 mb-1">السعر الإجمالي</p>
-                  <p className="text-3xl font-bold text-white">
+                {/* Price Header - Brand Colors */}
+                <div
+                  style={{
+                    background: isNM
+                      ? 'linear-gradient(135deg, #065f46 0%, #047857 100%)'
+                      : 'linear-gradient(135deg, #9a3412 0%, #c2410c 100%)'
+                  }}
+                  className="text-white p-6"
+                >
+                  <p className="text-sm text-white/90 mb-1">السعر الإجمالي</p>
+                  <p className="text-3xl font-bold text-white drop-shadow-sm">
                     {formatPrice(property.price)}
                   </p>
-                  <div className="flex items-center gap-4 mt-3 text-sm text-white/95">
-                    <span className="bg-white/30 px-2 py-1 rounded text-white font-medium">
+                  <div className="flex items-center gap-4 mt-3 text-sm">
+                    <span className="bg-white/25 backdrop-blur-sm px-3 py-1 rounded-full text-white font-medium">
                       {Math.round(property.price / property.details.area_sqm).toLocaleString()} جنيه/م²
                     </span>
                     {property.isVerified && (
-                      <span className="flex items-center gap-1 text-white">
+                      <span className="flex items-center gap-1 text-white bg-white/20 px-2 py-1 rounded-full">
                         <CheckCircle2 className="h-4 w-4" />
                         موثق
                       </span>
