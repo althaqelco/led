@@ -86,9 +86,24 @@ export function HeroSection({ onSearch, totalProperties = 100, totalDistricts = 
           <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-2 md:mb-4">
             التيسير <span className="text-orange-400">للعقارات</span>
           </h1>
-          <p className="text-sm sm:text-base md:text-xl text-gray-300 max-w-2xl mx-auto px-2">
-            منصتك الأولى للبحث عن عقارات للبيع في دمياط الجديدة
+          <p className="text-sm sm:text-base md:text-xl text-gray-300 max-w-3xl mx-auto px-2">
+            منصتك الأولى للبحث عن عقارات للبيع في{" "}
+            <span className="text-orange-400 font-semibold">دمياط الجديدة</span>
+            {" "}و{" "}
+            <span className="text-emerald-400 font-semibold">المنصورة الجديدة</span>
           </p>
+
+          {/* City Tags */}
+          <div className="flex justify-center gap-3 mt-4">
+            <span className="inline-flex items-center gap-2 bg-orange-500/20 backdrop-blur-sm border border-orange-400/30 text-orange-300 px-4 py-2 rounded-full text-sm font-medium">
+              <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
+              دمياط الجديدة
+            </span>
+            <span className="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/30 text-emerald-300 px-4 py-2 rounded-full text-sm font-medium">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+              المنصورة الجديدة
+            </span>
+          </div>
         </div>
 
         {/* Search Box */}
@@ -137,9 +152,8 @@ export function HeroSection({ onSearch, totalProperties = 100, totalDistricts = 
                   <SelectItem value="all">جميع المناطق</SelectItem>
                   {getCategories().map(({ city, categories }) => (
                     <SelectGroup key={city.id}>
-                      <SelectLabel className={`font-bold ${
-                        city.id === "new-damietta" ? "text-orange-600" : "text-emerald-600"
-                      }`}>
+                      <SelectLabel className={`font-bold ${city.id === "new-damietta" ? "text-orange-600" : "text-emerald-600"
+                        }`}>
                         {city.nameAr}
                       </SelectLabel>
                       {categories.map((category) => (
@@ -155,7 +169,7 @@ export function HeroSection({ onSearch, totalProperties = 100, totalDistricts = 
               </Select>
             </div>
 
-{/* Property Type Select */}
+            {/* Property Type Select */}
             <div className="space-y-1 md:space-y-2">
               <label className="text-white text-xs md:text-sm flex items-center gap-1 md:gap-2">
                 <Building className="h-3 w-3 md:h-4 md:w-4" />
@@ -194,7 +208,13 @@ export function HeroSection({ onSearch, totalProperties = 100, totalDistricts = 
         </div>
 
         {/* Stats */}
-        <div className="flex justify-center gap-6 sm:gap-8 md:gap-16 mt-6 md:mt-12">
+        <div className="flex justify-center gap-4 sm:gap-6 md:gap-12 mt-6 md:mt-12 flex-wrap">
+          <div className="text-center">
+            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-400">
+              2
+            </p>
+            <p className="text-gray-300 text-xs sm:text-sm md:text-base">مدينة</p>
+          </div>
           <div className="text-center">
             <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-400">
               {totalProperties}+

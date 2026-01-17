@@ -22,10 +22,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://eltaiseer.com"),
   title: {
-    default: "التيسير للعقارات | شقق وفيلات وأراضي للبيع في دمياط الجديدة",
-    template: "%s | التيسير للعقارات - دمياط الجديدة",
+    default: "التيسير للعقارات | شقق وفيلات وأراضي للبيع في دمياط الجديدة والمنصورة الجديدة",
+    template: "%s | التيسير للعقارات",
   },
-  description: "أفضل عقارات دمياط الجديدة للبيع - شقق، فيلات، دوبلكس، محلات تجارية، أراضي. أسعار تنافسية وتقسيط مريح. تصفح أكثر من 100 عقار في جميع أحياء دمياط الجديدة. التيسير للعقارات - شريكك الموثوق.",
+  description: "أفضل عقارات دمياط الجديدة والمنصورة الجديدة للبيع - شقق، فيلات، دوبلكس، محلات تجارية، أراضي. أسعار تنافسية وتقسيط مريح. تصفح أكثر من 100 عقار في جميع أحياء المدن الجديدة. التيسير للعقارات - شريكك الموثوق.",
   keywords: [
     "عقارات دمياط الجديدة",
     "شقق للبيع في دمياط الجديدة",
@@ -46,10 +46,16 @@ export const metadata: Metadata = {
     "روف للبيع دمياط الجديدة",
     "بنتهاوس دمياط الجديدة",
     "شاليه دمياط الجديدة",
+    "عقارات المنصورة الجديدة",
+    "شقق للبيع في المنصورة الجديدة",
+    "فيلات المنصورة الجديدة",
+    "أراضي للبيع المنصورة الجديدة",
     "التيسير للعقارات",
     "عقارات مصر",
     "real estate damietta",
+    "real estate new mansoura",
     "apartments for sale new damietta",
+    "apartments for sale new mansoura",
   ],
   authors: [{ name: "التيسير للعقارات", url: "https://eltaiseer.com" }],
   creator: "التيسير للعقارات",
@@ -70,21 +76,21 @@ export const metadata: Metadata = {
     locale: "ar_EG",
     url: "https://eltaiseer.com",
     siteName: "التيسير للعقارات",
-    title: "التيسير للعقارات | شقق وفيلات وأراضي للبيع في دمياط الجديدة",
-    description: "أفضل عقارات دمياط الجديدة للبيع - شقق، فيلات، دوبلكس، محلات تجارية، أراضي. أسعار تنافسية وتقسيط مريح. تصفح أكثر من 100 عقار.",
+    title: "التيسير للعقارات | شقق وفيلات وأراضي للبيع في دمياط الجديدة والمنصورة الجديدة",
+    description: "أفضل عقارات دمياط الجديدة والمنصورة الجديدة للبيع - شقق، فيلات، دوبلكس، محلات تجارية، أراضي. أسعار تنافسية وتقسيط مريح.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "التيسير للعقارات - عقارات دمياط الجديدة",
+        alt: "التيسير للعقارات - عقارات دمياط الجديدة والمنصورة الجديدة",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "التيسير للعقارات | عقارات دمياط الجديدة للبيع",
-    description: "شقق، فيلات، دوبلكس، أراضي للبيع في دمياط الجديدة. أسعار تنافسية وتقسيط مريح.",
+    title: "التيسير للعقارات | عقارات دمياط الجديدة والمنصورة الجديدة للبيع",
+    description: "شقق، فيلات، دوبلكس، أراضي للبيع في دمياط الجديدة والمنصورة الجديدة. أسعار تنافسية وتقسيط مريح.",
     images: ["/og-image.jpg"],
     creator: "@eltaiseer",
   },
@@ -119,7 +125,7 @@ export default function RootLayout({
     "@id": "https://eltaiseer.com/#organization",
     name: "التيسير للعقارات",
     alternateName: "El Taiseer Real Estate",
-    description: "شركة التيسير للعقارات - أفضل عقارات دمياط الجديدة للبيع. شقق، فيلات، دوبلكس، محلات تجارية، أراضي بأسعار تنافسية.",
+    description: "شركة التيسير للعقارات - أفضل عقارات دمياط الجديدة والمنصورة الجديدة للبيع. شقق، فيلات، دوبلكس، محلات تجارية، أراضي بأسعار تنافسية.",
     url: "https://eltaiseer.com",
     logo: "https://eltaiseer.com/logo.png",
     telephone: "+201558245974",
@@ -129,7 +135,10 @@ export default function RootLayout({
       addressRegion: "دمياط",
       addressCountry: "EG",
     },
-    areaServed: { "@type": "City", name: "دمياط الجديدة" },
+    areaServed: [
+      { "@type": "City", name: "دمياط الجديدة" },
+      { "@type": "City", name: "المنصورة الجديدة" }
+    ],
     priceRange: "$$",
   };
 
@@ -139,7 +148,7 @@ export default function RootLayout({
     "@id": "https://eltaiseer.com/#website",
     url: "https://eltaiseer.com",
     name: "التيسير للعقارات",
-    description: "أفضل عقارات دمياط الجديدة للبيع",
+    description: "أفضل عقارات دمياط الجديدة والمنصورة الجديدة للبيع",
     publisher: { "@id": "https://eltaiseer.com/#organization" },
     inLanguage: "ar-EG",
     potentialAction: {
